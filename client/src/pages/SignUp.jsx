@@ -37,7 +37,7 @@ function SignUp() {
       setLoading(false);
       setError(null);
       console.log(data);
-      navigate('/sign-in');
+      navigate('/signin');
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -56,7 +56,7 @@ function SignUp() {
         </form>
         <div className="flex gap-2 mt-5">
           <p>Have an account?</p>
-          <Link to={"/Sign-in"}>
+          <Link to={"/Signin"}>
           <span className="text-blue-700">Sign in</span>
           </Link>
         </div>
