@@ -6,7 +6,7 @@ import { signInstart ,signInfailure, signInsuccess} from '../redux/user/userSlic
 function SignIn() {
   const dispatch= useDispatch();
   const navigate=useNavigate();
-  const [formData,setFormData]=useState({})
+  const [formData,setFormData]=useState({});
   const {loading, error} = useSelector((state) => state.user);
   const handleChange=(e)=>{
     setFormData(
@@ -20,7 +20,7 @@ function SignIn() {
   const handleSubmit= async (e)=>{
     try {
       
-      dispatchEvent(signInstart());
+      dispatch(signInstart());
       e.preventDefault();
       const res = await fetch('/api/auth/signin', {
         method: 'POST',
@@ -32,7 +32,7 @@ function SignIn() {
       const data = await res.json();
       if(data.success === false)
       {
-        dispatchEvent(signInfailure(data.message));
+        dispatch(signInfailure(data.message));
         return;
       }
       dispatch(signInsuccess(data));
